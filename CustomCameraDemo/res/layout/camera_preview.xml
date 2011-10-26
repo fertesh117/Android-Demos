@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+  android:keepScreenOn="true">
+      <com.example.CustomCameraDemo.CameraView android:id="@+id/CameraView01" android:layout_width="fill_parent"
+android:layout_height="fill_parent"></com.example.CustomCameraDemo.CameraView>
+      <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/ImageView01"></ImageView>
+  
+<RelativeLayout android:id="@+id/LinearLayout1"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent">
+<ImageButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/Button01" android:src="@android:drawable/ic_menu_camera" android:layout_centerVertical="true" android:layout_alignParentRight="true"></ImageButton>
+<ImageButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:src="@android:drawable/ic_menu_save" android:layout_alignParentTop="true" android:layout_alignParentRight="true" android:layout_above="@+id/Button01" android:visibility="gone" android:id="@+id/imageButton1"></ImageButton>
+<ImageButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/imageButton2" android:src="@android:drawable/ic_menu_delete" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" android:layout_below="@+id/Button01" android:visibility="gone"></ImageButton>
+</RelativeLayout>
+</FrameLayout>
