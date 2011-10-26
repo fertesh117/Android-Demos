@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="fill_parent">
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent">
+    <Button android:text="Start Listen" android:id="@+id/buttonStart" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
+    <Button android:text="Get Location" android:id="@+id/buttonGetL" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
+    <Button android:text="Stop Listen" android:id="@+id/buttonStop" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
+    <Button android:id="@+id/buttonNetState" android:layout_height="wrap_content" android:text="Location State" android:layout_width="wrap_content"></Button>
+    <TextView android:text="Latitud" android:id="@+id/textView1" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+    <TextView android:text="TextView" android:id="@+id/textViewLatitude" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+    <TextView android:text="Longitud" android:id="@+id/textView3" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+    <TextView android:text="TextView" android:id="@+id/textViewLongitude" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+    <TextView android:text="Precision" android:id="@+id/textView5" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+    <TextView android:text="TextView" android:id="@+id/textViewPrecision" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+    <TextView android:text="Proveedor" android:id="@+id/textView7" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+    <TextView android:text="TextView" android:id="@+id/textViewProveedor" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+    <TextView android:text="Tiempo desde actualizacion" android:id="@+id/textView2" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+    <TextView android:text="TextView" android:id="@+id/textViewTiempoUltAct" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+    <Button android:text="Ver Mapa" android:id="@+id/buttonMap" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
+    <Button android:text="Direccion" android:id="@+id/buttonDir" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
+    <TextView android:text="TextView" android:id="@+id/textViewDir" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+    
+</LinearLayout>
+</ScrollView>
