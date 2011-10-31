@@ -1,15 +1,9 @@
 package com.example.CustomCameraDemo;
 
 import java.io.File;
-import java.io.FileInputStream;
-
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.InputStreamEntity;
-import org.apache.http.impl.client.DefaultHttpClient;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -28,6 +22,7 @@ public class CustomCameraDemoActivity extends Activity {
 	ImageView imageView;
 	String filePath;
 	Context context = this.getApplication();
+	ProgressDialog pd;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -58,8 +53,12 @@ public class CustomCameraDemoActivity extends Activity {
 
 			@Override
 			public void onClick(View arg0) {
-TareaEnviar te = new TareaEnviar(context);
-te.execute(filePath);
+				TareaEnviar te = new TareaEnviar(context);
+				pd = new ProgressDialog(context);
+				pd.setTitle("Enviando");
+				pd.setMessage("Se esta enviando la imagen");
+				pd.show();
+				te.execute(filePath);
 			}
 		});
 	}
@@ -76,34 +75,32 @@ te.execute(filePath);
 			}
 		}
 	}
-}
 
-class TareaEnviar extends AsyncTask<String, Void, Void> {
-Context context;
-	public TareaEnviar(Context context){
-		this.context = context;
-	}
-	@Override
-	protected Void doInBackground(String... arg0) {
-		String url = "http://14.240.132.90:81/imagen/CargaJava/RegistrarFoto.aspx";
-		File file = new File(arg0[0]);
-		try {
-			HttpClient httpclient = new DefaultHttpClient();
+	class TareaEnviar extends AsyncTask<String, Void, Void> {
+		Context context;
 
-			HttpPost httppost = new HttpPost(url);
-
-			InputStreamEntity reqEntity = new InputStreamEntity(
-					new FileInputStream(file), -1);
-			reqEntity.setContentType("binary/octet-stream");
-			reqEntity.setChunked(true); // Send in multiple parts if needed
-			httppost.setEntity(reqEntity);
-			HttpResponse response = httpclient.execute(httppost);
-			Toast.makeText(context, "Enviado", Toast.LENGTH_SHORT).show();
-
-		} catch (Exception e) {
-			e.printStackTrace();
+		public TareaEnviar(Context context) {
+			this.context = context;
 		}
-		return null;
-	}
 
+		@Override
+		protected Void doInBackground(String... arg0) {
+
+			File file = new File(arg0[0]);
+			try {
+				MyHttpUpload.Upload(file);
+			} catch (Exception e) {
+				e.printStackTrace();
+				Toast.makeText(context, "Error?", Toast.LENGTH_SHORT).show();
+			}
+			return null;
+		}
+
+		@Override
+		protected void onPostExecute(Void result) {
+			pd.dismiss();
+			super.onPostExecute(result);
+		}
+
+	}
 }
