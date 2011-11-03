@@ -21,13 +21,14 @@ public class CustomCameraDemoActivity extends Activity {
 	ImageButton botonCamara, botonEnviar;
 	ImageView imageView;
 	String filePath;
-	Context context = this.getApplication();
+	Context context;
 	ProgressDialog pd;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
+		pd = new ProgressDialog(this);
 		initComponents();
 		setListeners();
 	}
@@ -54,7 +55,7 @@ public class CustomCameraDemoActivity extends Activity {
 			@Override
 			public void onClick(View arg0) {
 				TareaEnviar te = new TareaEnviar(context);
-				pd = new ProgressDialog(context);
+				
 				pd.setTitle("Enviando");
 				pd.setMessage("Se esta enviando la imagen");
 				pd.show();
